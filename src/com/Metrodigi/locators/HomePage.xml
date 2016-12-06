@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Locators>
+    <Homepage>
+      <NewProjectButton><![CDATA[css=#new-project-btn]]></NewProjectButton>  
+      <SearchTextBox><![CDATA[css=#search]]></SearchTextBox>
+      <ProjectPriorityDropdown><![CDATA[css=#book_priority]]></ProjectPriorityDropdown>
+      <AllTasksDropdown><![CDATA[css=#book_status]]></AllTasksDropdown>
+    </Homepage>
+</Locators>
