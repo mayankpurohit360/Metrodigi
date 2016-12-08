@@ -1,5 +1,11 @@
 package com.Metrodigi.util;
 
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeMethod;
+
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,6 +17,10 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.AWTException;
+import java.awt.Robot;
 
 
 
@@ -36,8 +46,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+import com.Metrodigi.pagehelper.EditProjectsHelper;
 import com.Metrodigi.pagehelper.HomePageHelper;
 import com.Metrodigi.pagehelper.LoginPageHelper;
+
 
 public abstract class DriverTestCase 
 {
@@ -52,14 +64,18 @@ public abstract class DriverTestCase
 	public PropertyReader propertyReader = new PropertyReader();
 	public HomePageHelper homepageHelper = new HomePageHelper(getWebDriver());
 //	public LoginPageHelper loginpageHelper = new LoginPageHelper(getWebDriver());
+	public EditProjectsHelper editProjectsHelper;
 	//Define variables
 	public String application_url = propertyReader.readApplicationFile("URL");
 	String env = propertyReader.readApplicationFile("Environment"); 
     public String username1 = propertyReader.readApplicationFile("Username1");
 	public String password1 = propertyReader.readApplicationFile("Password1");
+	public String collectionname1 = propertyReader.readApplicationFile("Collectionname1");
 	File downloadDir;
 	
 	
+	
+	@BeforeMethod
 	@BeforeTest
 	public void setUp() 
 	{		
@@ -394,5 +410,33 @@ public abstract class DriverTestCase
 			}
 			return result;
 		}
+		//File Upload method
 		
+		public void typeCharacter(Robot robot, String letter)
+	      {
+
+	    	Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+	    	StringSelection str = new StringSelection(letter);
+	    	clip.setContents(str, str);
+	    	robot.delay(250);
+		    robot.keyPress(KeyEvent.VK_ENTER);
+		    robot.keyRelease(KeyEvent.VK_ENTER);
+		    robot.keyPress(KeyEvent.VK_CONTROL);
+		    robot.keyPress(KeyEvent.VK_V);
+		    robot.keyRelease(KeyEvent.VK_V);
+		    robot.keyRelease(KeyEvent.VK_CONTROL);
+		    robot.keyPress(KeyEvent.VK_ENTER);
+		    robot.delay(50);
+		    robot.keyRelease(KeyEvent.VK_ENTER);
+	       } 
+		
+		public void uploadfile() throws Exception{
+				
+		//put path to your file in a clipboard
+	    
+		Robot robot = new Robot();
+		String filepath = System.getProperty("user.dir")+"\\workspace\\Metrodigi\\Attachments\\Master Word.docx";
+		this.typeCharacter(robot, filepath);
+  	    //imitate mouse events like ENTER, CTRL+C, CTRL+V
+	   }		
 }

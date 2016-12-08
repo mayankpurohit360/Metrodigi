@@ -14,6 +14,7 @@ package com.Metrodigi.scripts;
 
 import org.testng.annotations.Test;
 
+import com.Metrodigi.pagehelper.EditProjectsHelper;
 import com.Metrodigi.pagehelper.HomePageHelper;
 import com.Metrodigi.pagehelper.LoginPageHelper;
 import com.Metrodigi.util.DriverTestCase;
@@ -22,6 +23,7 @@ import com.Metrodigi.util.DriverTestCase;
 public class Demo extends DriverTestCase
 {	
 	private LoginPageHelper loginpageHelper;
+	
 	/**
 	 * 
 	 * @author 360logica
@@ -53,6 +55,11 @@ public class Demo extends DriverTestCase
 		
 		homepageHelper = new HomePageHelper(getWebDriver());
 		homepageHelper.AddProject();
+		
+		editProjectsHelper = new EditProjectsHelper(getWebDriver());
+		editProjectsHelper.CollectionDetails();
+		editProjectsHelper.Newproject();
+		
 		
 	}
 }

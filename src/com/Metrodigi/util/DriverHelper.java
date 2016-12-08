@@ -1,5 +1,10 @@
 package com.Metrodigi.util;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -13,6 +18,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 
 public abstract class DriverHelper {
@@ -395,6 +401,7 @@ public abstract class DriverHelper {
 	    return randomNumber;
 	}
 	
+	
 	//Hold and drag method
 	public void holdAndDrag(String locator, int hold_X, int hold_Y, int drag_X, int drag_Y) {
 		
@@ -422,5 +429,34 @@ public abstract class DriverHelper {
 			   .perform();
 
 	}
+	
+	//File Upload method
+	public void typeCharacter(Robot robot, String letter)
+    {
+
+  	Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+  	StringSelection str = new StringSelection(letter);
+  	clip.setContents(str, str);
+  	robot.delay(250);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    robot.keyPress(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_V);
+	    robot.keyRelease(KeyEvent.VK_CONTROL);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.delay(50);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Reporter.log("Uploaded file path is :"+letter, true);
+     } 
+	
+	public void uploadfile() throws Exception{
+			
+	//put path to your file in a clipboard
+    Robot robot = new Robot();
+	String filepath = System.getProperty("user.dir")+"\\Attachments\\Master Word.docx";
+	this.typeCharacter(robot, filepath);
+    //imitate mouse events like ENTER, CTRL+C, CTRL+V
+   }		
 	
 }

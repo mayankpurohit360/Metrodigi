@@ -2,9 +2,17 @@
 <Locators>
     <EditProjects>
       <Collection>
-       <UserName><![CDATA[//input[@id='username']]]></UserName>  
-       <Password><![CDATA[//input[@id='password']]]></Password>
-       <LoginButton><![CDATA[//div[contains(@class,'login-form-submit-group')]//button]]></LoginButton>              
+       <CollectionName><![CDATA[//input[@id='form-project-title']]]></CollectionName>  
+       <AddProjectButton><![CDATA[//button[contains(text(),'+Add Project')]]]></AddProjectButton>              
    </Collection>
+   <NewProject>
+       <Reflowable><![CDATA[//label[text()='Reflowable']//span[2]]]></Reflowable>
+       <Fixedlayout><![CDATA[//label[text()='Fixed Layout']//span[2]]]></Fixedlayout>
+       <Yes><![CDATA[//label[text()='Yes']//span[2]]]></Yes>
+       <No><![CDATA[//label[text()='No']//span[2]]]></No>
+       <ProjectName><![CDATA[//input[starts-with(@id, 'form-book-title')]]]></ProjectName>
+       <LocateFilesButton><![CDATA[//button[contains(text(),'Locate Files')]]]></LocateFilesButton>
+       <Savebutton><![CDATA[//button[contains(text(),'Save')]]]></Savebutton>
+    </NewProject>
    </EditProjects>   
 </Locators>
