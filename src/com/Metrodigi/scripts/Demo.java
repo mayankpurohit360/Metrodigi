@@ -12,6 +12,7 @@
 
 package com.Metrodigi.scripts;
 
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.Metrodigi.pagehelper.EditProjectsHelper;
@@ -40,6 +41,12 @@ public class Demo extends DriverTestCase
 	 * <br><b>Steps:</b>
 	 * Step 1: Launch web browser (FireFox,IE, Chrome).
 	 * Step 2: Login into the application
+	 * Step 3: Click on Add Project button to add New Project
+	 * Step 4: Create Collection
+	 * Step 5: Create New Project
+	 * Step 6: Open Project
+	 * Step 7: Delete Project
+	 * Step 8: Delete Collection
 	 * @param none
 	 * @return None.
 	 * @throws Exception 
@@ -54,12 +61,13 @@ public class Demo extends DriverTestCase
 		loginpageHelper.Login(username1, password1);
 		
 		homepageHelper = new HomePageHelper(getWebDriver());
-		homepageHelper.AddProject();
-		
-		editProjectsHelper = new EditProjectsHelper(getWebDriver());
-		editProjectsHelper.CollectionDetails();
-		editProjectsHelper.Newproject();
-		
-		
+		Thread.sleep(10000);
+		//homepageHelper.AddProject();
+		//editProjectsHelper = new EditProjectsHelper(getWebDriver());
+		//editProjectsHelper.CollectionDetails();
+		//editProjectsHelper.Newproject();
+		//homepageHelper.Openproject();	
+		//homepageHelper.DeleteProject();
+		homepageHelper.DeleteCollection();
 	}
 }

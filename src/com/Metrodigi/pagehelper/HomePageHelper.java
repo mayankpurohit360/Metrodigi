@@ -45,6 +45,60 @@ public class HomePageHelper extends DriverHelper
 			 e.printStackTrace();
 		 }
 	 }
-
-
+	/**
+	 * @description This method is used to Delete Project from Collection
+	 * @return none
+	 */
+    /*public void DeleteProject(){
+	      try{
+	          String Deleteproject = homepageLocator.getLocator("Homepage.Deleteprojectbutton");
+	          String ConfirmDelete = homepageLocator.getLocator("Homepage.Confirmdelete");
+	          WaitForElementPresent(Deleteproject, 10);
+	          clickOn(Deleteproject);
+	          Reporter.log("Click on Delete Project button:"+Deleteproject, true);
+	          WaitForElementPresent(ConfirmDelete, 10);
+	          clickOn(ConfirmDelete);
+	          Reporter.log("Click on Confirm Delete button:"+ConfirmDelete, true);
+	          isElementPresent(ConfirmDelete);
+	          Thread.sleep(10000);
+	          }catch (Exception e) {
+	            e.printStackTrace();
+              }
+	      }*/
+	/**
+	 * @description This method is used to Delete Collection from application
+	 * @return none
+	 */
+    public void DeleteCollection(){
+    	try{
+    	    String Deletecollection = homepageLocator.getLocator("Homepage.Deletecollection");
+    	    String Confirmdeletecollection = homepageLocator.getLocator("Homepage.ConfirmDeletecollection");
+    	    WaitForElementPresent(Deletecollection, 10);
+	        clickOn(Deletecollection);
+	        Reporter.log("Click on Delete Collection Project button:"+Deletecollection, true);
+	        WaitForElementPresent(Confirmdeletecollection, 10);
+	        clickOn(Confirmdeletecollection);
+	        Reporter.log("Click on Confirm Delete Collection button:"+Confirmdeletecollection, true);
+	        isElementPresent(Confirmdeletecollection);
+	        Thread.sleep(10000);
+    	}catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+	 * @description This method is used to Open Project
+	 * @return none
+	 */
+	/*public void Openproject()
+	{
+		try{
+			String openproject = homepageLocator.getLocator("Homepage.ClickonProject");
+			WaitForElementNotPresent(openproject, 20);
+			clickOn(openproject);
+			Reporter.log("Click on New Project:", true);
+			Thread.sleep(30000);
+		}catch (Exception e) {
+            e.printStackTrace();
+        }
+	}*/
 }

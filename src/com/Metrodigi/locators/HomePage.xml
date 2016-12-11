@@ -5,5 +5,10 @@
       <SearchTextBox><![CDATA[css=#search]]></SearchTextBox>
       <ProjectPriorityDropdown><![CDATA[css=#book_priority]]></ProjectPriorityDropdown>
       <AllTasksDropdown><![CDATA[css=#book_status]]></AllTasksDropdown>
+      <Deleteprojectbutton><![CDATA[//button[contains(@id,'delete-project-btn')][1]]]></Deleteprojectbutton>
+      <Confirmdelete><![CDATA[//button[@class ='btn btn-default confirm-delete-btn ng-scope']]]></Confirmdelete>
+      <Deletecollection><![CDATA[//button[contains(@id,'manage-project-delete-btn')]]]></Deletecollection>
+      <ConfirmDeletecollection><![CDATA[//button[contains(@class,'btn btn-default confirm-delete-btn')]]]></ConfirmDeletecollection>
+      <ClickonProject><![CDATA[//div[@class='book-title']//div[@class='item-thumb-title ng-binding'][1]]]></ClickonProject>
     </Homepage>
 </Locators>

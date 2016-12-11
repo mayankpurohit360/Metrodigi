@@ -50,7 +50,10 @@ public class EditProjectsHelper extends DriverHelper
 			 e.printStackTrace();
 		 } return collectionname;
 	}
-		 
+	/**
+	 * @description This method is used to Add New Project with Uploaded file to the application
+	 * @return none
+	 */
 		 public String Newproject()
 		 {
 			 String projectName = null;
@@ -82,18 +85,18 @@ public class EditProjectsHelper extends DriverHelper
 				 //Add Project Details
 				 
 				 String Projectname = editprojectsLocator.getLocator("EditProjects.NewProject.ProjectName");
-				 String savebutton = editprojectsLocator.getLocator("EditProjects.NewProject.Savebutton");
 				 String locatefiles = editprojectsLocator.getLocator("EditProjects.NewProject.LocateFilesButton");
-				 
+				 String savebutton = editprojectsLocator.getLocator("EditProjects.NewProject.Savebutton");
+								 
 				 projectName = propertyReader.readApplicationFile("Projectname1")+String.valueOf(getRandomInteger(1,999));
 				 sendKeys(Projectname, projectName);
-				 Reporter.log("New Collection Name is :"+projectName, true);
+				 Reporter.log("New Project Name is :"+projectName, true);
 				 
 				 // Upload Files
-				 //WaitForElementNotPresent(Projectname, 20);
 				 clickOn(locatefiles);
 				 uploadfile();
-				 WaitForElementNotPresent(Projectname, 20);
+				 //waitForElementLoad(20);
+				 WaitForElementNotPresent(savebutton, 30);
 				 
 				 //Click on Save Button
 				 clickOn(savebutton);

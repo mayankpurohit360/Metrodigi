@@ -437,7 +437,8 @@ public abstract class DriverHelper {
   	Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
   	StringSelection str = new StringSelection(letter);
   	clip.setContents(str, str);
-  	robot.delay(250);
+  //imitate mouse events like ENTER, CTRL+C, CTRL+V
+  	    robot.delay(250);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
 	    robot.keyPress(KeyEvent.VK_CONTROL);
@@ -456,7 +457,7 @@ public abstract class DriverHelper {
     Robot robot = new Robot();
 	String filepath = System.getProperty("user.dir")+"\\Attachments\\Master Word.docx";
 	this.typeCharacter(robot, filepath);
-    //imitate mouse events like ENTER, CTRL+C, CTRL+V
+    
    }		
 	
 }
