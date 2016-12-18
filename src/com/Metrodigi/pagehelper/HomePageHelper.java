@@ -49,7 +49,7 @@ public class HomePageHelper extends DriverHelper
 	 * @description This method is used to Delete Project from Collection
 	 * @return none
 	 */
-    /*public void DeleteProject(){
+    public void DeleteProject(){
 	      try{
 	          String Deleteproject = homepageLocator.getLocator("Homepage.Deleteprojectbutton");
 	          String ConfirmDelete = homepageLocator.getLocator("Homepage.Confirmdelete");
@@ -64,7 +64,7 @@ public class HomePageHelper extends DriverHelper
 	          }catch (Exception e) {
 	            e.printStackTrace();
               }
-	      }*/
+	      }
 	/**
 	 * @description This method is used to Delete Collection from application
 	 * @return none
@@ -89,16 +89,31 @@ public class HomePageHelper extends DriverHelper
 	 * @description This method is used to Open Project
 	 * @return none
 	 */
-	/*public void Openproject()
+	public void Openproject()
 	{
 		try{
 			String openproject = homepageLocator.getLocator("Homepage.ClickonProject");
 			WaitForElementNotPresent(openproject, 20);
 			clickOn(openproject);
 			Reporter.log("Click on New Project:", true);
-			Thread.sleep(30000);
+			Thread.sleep(50000);
 		}catch (Exception e) {
             e.printStackTrace();
         }
-	}*/
+	}
+    
+    /**
+	 * @description This method is used to Open Existing Collection from application
+	 * @return none
+	 */
+    
+    public void OpenExistingCollection(){
+    	try{
+    		String Opencollection = homepageLocator.getLocator("Homepage.ClickonCollection");
+    		clickOn(Opencollection);
+    		Thread.sleep(10000);
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+    }
 }

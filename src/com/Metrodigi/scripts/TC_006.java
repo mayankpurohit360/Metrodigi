@@ -12,16 +12,14 @@
 
 package com.Metrodigi.scripts;
 
-import org.testng.Reporter;
 import org.testng.annotations.Test;
-
 import com.Metrodigi.pagehelper.EditProjectsHelper;
 import com.Metrodigi.pagehelper.HomePageHelper;
 import com.Metrodigi.pagehelper.LoginPageHelper;
 import com.Metrodigi.util.DriverTestCase;
 
 
-public class Demo extends DriverTestCase
+public class TC_006 extends DriverTestCase
 {	
 	private LoginPageHelper loginpageHelper;
 	
@@ -41,12 +39,11 @@ public class Demo extends DriverTestCase
 	 * <br><b>Steps:</b>
 	 * Step 1: Launch web browser (FireFox,IE, Chrome).
 	 * Step 2: Login into the application
-	 * Step 3: Click on Add Project button to add New Project
-	 * Step 4: Create Collection
-	 * Step 5: Create New Project
-	 * Step 6: Open Project
-	 * Step 7: Delete Project
-	 * Step 8: Delete Collection
+	 * Step 3: Click on New Project button to add New Project
+	 * Step 4: Add Collection Details
+	 * Step 5: Add New Project
+	 * Step 6: Upload Media files like image, audio, video
+	 * Step 7: Save Project
 	 * @param none
 	 * @return None.
 	 * @throws Exception 
@@ -62,12 +59,10 @@ public class Demo extends DriverTestCase
 		
 		homepageHelper = new HomePageHelper(getWebDriver());
 		Thread.sleep(10000);
-		//homepageHelper.AddProject();
-		//editProjectsHelper = new EditProjectsHelper(getWebDriver());
-		//editProjectsHelper.CollectionDetails();
-		//editProjectsHelper.Newproject();
-		//homepageHelper.Openproject();	
-		//homepageHelper.DeleteProject();
-		homepageHelper.DeleteCollection();
+		homepageHelper.AddProject();			
+		editProjectsHelper = new EditProjectsHelper(getWebDriver());
+		editProjectsHelper.CollectionDetails();
+		editProjectsHelper.Newproject();
+		editProjectsHelper.uploadmedia();
 	}
 }

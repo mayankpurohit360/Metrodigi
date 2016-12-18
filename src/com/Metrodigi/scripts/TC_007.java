@@ -13,14 +13,13 @@
 package com.Metrodigi.scripts;
 
 import org.testng.annotations.Test;
-
 import com.Metrodigi.pagehelper.EditProjectsHelper;
 import com.Metrodigi.pagehelper.HomePageHelper;
 import com.Metrodigi.pagehelper.LoginPageHelper;
 import com.Metrodigi.util.DriverTestCase;
 
 
-public class TC_003 extends DriverTestCase
+public class TC_007 extends DriverTestCase
 {	
 	private LoginPageHelper loginpageHelper;
 	
@@ -41,9 +40,11 @@ public class TC_003 extends DriverTestCase
 	 * Step 1: Launch web browser (FireFox,IE, Chrome).
 	 * Step 2: Login into the application
 	 * Step 3: Click on New Project button to add New Project
-	 * Step 4: Add Collection Details
-	 * Step 5: Click on Save link
-	 * Step 6: Click on created collection
+	 * Step 4: Create Collection
+	 * Step 5: Create New Project
+	 * Step 6: Open Project
+	 * Step 7: Delete Project
+	 * Step 8: Delete Collection
 	 * @param none
 	 * @return None.
 	 * @throws Exception 
@@ -55,13 +56,14 @@ public class TC_003 extends DriverTestCase
 
 		//System.out.println("Metro Digi");
 		getWebDriver().get(application_url);
-		loginpageHelper.Login(username1, password1);
-		
+		loginpageHelper.Login(username1, password1);		
 		homepageHelper = new HomePageHelper(getWebDriver());
 		Thread.sleep(10000);
-		homepageHelper.AddProject();
-		editProjectsHelper = new EditProjectsHelper(getWebDriver());
-		editProjectsHelper.NewCollection();
 		homepageHelper.OpenExistingCollection();
-	}
+		editProjectsHelper = new EditProjectsHelper(getWebDriver());
+		editProjectsHelper.AddProject();
+		//editProjectsHelper.Existingcollectionproject();
+		editProjectsHelper.Newproject();
+		editProjectsHelper.uploaddocument();
+		}
 }

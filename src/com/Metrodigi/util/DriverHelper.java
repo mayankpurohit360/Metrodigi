@@ -448,16 +448,37 @@ public abstract class DriverHelper {
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.delay(50);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    robot.delay(90);
 	    Reporter.log("Uploaded file path is :"+letter, true);
      } 
 	
-	public void uploadfile() throws Exception{
-			
+	public void uploadDocxfile() throws Exception{
+		Robot robot1 = new Robot();	
 	//put path to your file in a clipboard
-    Robot robot = new Robot();
-	String filepath = System.getProperty("user.dir")+"\\Attachments\\Master Word.docx";
-	this.typeCharacter(robot, filepath);
     
-   }		
+	String filepath = System.getProperty("user.dir")+"\\Attachments\\Master Word.docx";
+	this.typeCharacter(robot1, filepath);
 	
+   }
+	public void uploadAudiofile() throws Exception{
+		
+		//put path to your file in a clipboard
+	    Robot robot2 = new Robot();
+		String filepath = System.getProperty("user.dir")+"\\Attachments\\Audio.mp3";
+		this.typeCharacter(robot2, filepath);
+		}
+   public void uploadimagefile() throws Exception{
+		
+		//put path to your file in a clipboard
+	    Robot robot3 = new Robot();
+		String filepath2 = System.getProperty("user.dir")+"\\Attachments\\Tiger.jpg";
+		this.typeCharacter(robot3, filepath2);
+		}
+   public void uploadVideofile() throws Exception{
+		
+		//put path to your file in a clipboard
+	    Robot robot = new Robot();
+		String filepath3 = System.getProperty("user.dir")+"\\Attachments\\video.mp4";
+		this.typeCharacter(robot, filepath3);
+		}
 }

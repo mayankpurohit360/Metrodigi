@@ -10,5 +10,6 @@
       <Deletecollection><![CDATA[//button[contains(@id,'manage-project-delete-btn')]]]></Deletecollection>
       <ConfirmDeletecollection><![CDATA[//button[contains(@class,'btn btn-default confirm-delete-btn')]]]></ConfirmDeletecollection>
       <ClickonProject><![CDATA[//div[@class='book-title']//div[@class='item-thumb-title ng-binding'][1]]]></ClickonProject>
+      <ClickonCollection><![CDATA[//a[@class='project-title ng-binding ng-scope'][1]]]></ClickonCollection>
     </Homepage>
 </Locators>

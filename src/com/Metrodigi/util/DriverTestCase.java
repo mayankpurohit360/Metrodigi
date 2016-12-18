@@ -1,8 +1,6 @@
 package com.Metrodigi.util;
 
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeMethod;
-
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -189,14 +187,14 @@ public abstract class DriverTestCase
 	}	
 
 	@AfterTest
-	public void afterMainMethod() 
+    public void afterMainMethod() 
 	{			
 		try {
 			Thread.sleep(5000);
 			driver.quit();
 		} catch (Exception e) {
 		}
-	}	
+	}
 	
 	@AfterMethod
 	public void endMethods() throws Exception
