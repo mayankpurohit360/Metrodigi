@@ -44,7 +44,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
-import com.Metrodigi.pagehelper.ContentEditorHelper;
+//import com.Metrodigi.pagehelper.ContentEditorHelper;
 import com.Metrodigi.pagehelper.EditProjectsHelper;
 import com.Metrodigi.pagehelper.HomePageHelper;
 import com.Metrodigi.pagehelper.LoginPageHelper;
@@ -64,7 +64,7 @@ public abstract class DriverTestCase
 	public HomePageHelper homepageHelper = new HomePageHelper(getWebDriver());
 //	public LoginPageHelper loginpageHelper = new LoginPageHelper(getWebDriver());
 	public EditProjectsHelper editProjectsHelper;
-	public ContentEditorHelper contenteditorhelper = new ContentEditorHelper(getWebDriver());
+	//public ContentEditorHelper contenteditorhelper = new ContentEditorHelper(getWebDriver());
 	//Define variables
 	public String application_url = propertyReader.readApplicationFile("URL");
 	String env = propertyReader.readApplicationFile("Environment"); 
@@ -77,108 +77,12 @@ public abstract class DriverTestCase
 	@BeforeTest
 	public void setUp() 
 	{		
-		System.setProperty("webdriver.chrome.driver", "E:/workspace/Metrodigi/lib/chromedriver.exe");
+		String path1 = getPath();
+		System.out.println(path1);
+		File file = new File(path1+"//lib//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
 		driver = new ChromeDriver();
-		/*String driverType = propertyReader.readApplicationFile("BROWSER");		
-		if (DriverType.Firefox.toString().equals(driverType)) 
-		{ 
-			//Set Folder path in which files gets saved
-			if(env.equals("Windows"))
-				downloadDir = new File(System.getProperty("user.dir")+"\\data");
-			if(env.equals("Linux"))
-				downloadDir = new File(System.getProperty("user.dir")+"//data");
-			if(env.equals("Mac"))
-				downloadDir = new File(System.getProperty("user.dir")+"//data");
-			  //Delete all the files in the folder
-			  String[] list = downloadDir.list();
-			  for(String s: list)
-			  {
-				  File currentFile = new File(downloadDir.getPath(),s);
-				  currentFile.delete();
-				  System.out.println("direcorty delete"); 
-			  }
-			
-			  //Create Folder if not exists
-	           if (!downloadDir.exists()){
-		            downloadDir.mkdir();
-		            System.out.println("direcorty created"); 
-		        }
-	            String strDownloadPath = "";
-	            if(env.equals("Windows"))
-	            	strDownloadPath =(System.getProperty("user.dir")+"\\data"); 
-	            if(env.equals("Linux"))
-	            	strDownloadPath =(System.getProperty("user.dir")+"//data");
-	            if(env.equals("Mac"))
-	            	strDownloadPath =(System.getProperty("user.dir")+"//data");
-		        //use Firefox profile with desired capabilities
-		        FirefoxProfile profile=new FirefoxProfile();
-				DesiredCapabilities cap = DesiredCapabilities.firefox();
-				//Set preferences in firefox profile         
-		        profile.setPreference("browser.download.folderList", 2);
-		        profile.setPreference("browser.download.manager.alertOnEXEOpen", false);
-		        profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/msword, application/csv, text/csv, application/download, application/epub image/png ,image/jpeg, application/pdf, text/html, text/plain, application/octet-stream");
-		        profile.setPreference("browser.download.dir", strDownloadPath);
-		        System.out.println("Path is:"+strDownloadPath);
-		        profile.setPreference("browser.download.manager.showWhenStarting", false);
-		        profile.setPreference("browser.download.manager.focusWhenStarting", false);
-		        profile.setPreference("browser.helperApps.alwaysAsk.force", false);
-		        profile.setPreference("browser.download.manager.alertOnEXEOpen", false);
-		        profile.setPreference("browser.download.manager.closeWhenDone", false);
-		        profile.setPreference("browser.download.manager.showAlertOnComplete", false);
-		        profile.setPreference("browser.download.manager.useWindow", false);
-		        profile.setPreference("browser.download.manager.showWhenStarting",false);
-		        profile.setPreference("services.sync.prefs.sync.browser.download.manager.showWhenStarting", false);
-		        profile.setPreference("pdfjs.disabled", true);
-		        //set new profile preferences
-		        profile.setAcceptUntrustedCertificates(false);
-		        profile.setAssumeUntrustedCertificateIssuer(true);
-		       
-		        //Set proxy IP and port. Here localhost Is proxy IP and 8085 Is Port number. 
-		        //You can change both values as per your requirement. 
-		        String PROXY = "localhost:8085"; 
-		        //Bellow given syntaxes will set browser proxy settings using DesiredCapabilities. 
-		        Proxy proxy = new Proxy(); 
-		        proxy.setHttpProxy(PROXY).setFtpProxy(PROXY)
-		        						 .setSslProxy(PROXY) 
-		        						 .setSocksProxy(PROXY); 
-		        //Use Capabilities when launch browser driver Instance. 
-		        cap = DesiredCapabilities.firefox(); 
-		        //setting desired capabilities
-		        //cap.setCapability(CapabilityType.PROXY, proxy); 
-		        cap.setCapability(FirefoxDriver.PROFILE, profile);
-		        driver =  new FirefoxDriver(cap);
-		        //driver = new FirefoxDriver(profile);
-		} 		
-
-		else if (DriverType.IE.toString().equals(driverType)) 
-		{ 
-			String path1 = getPath();
-			File file = new File(path1+"//IEDriverServer.exe");
-			System.setProperty("webdriver.ie.driver", file.getAbsolutePath());
-			DesiredCapabilities capabilities = new DesiredCapabilities();
-			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);			
-			driver = new InternetExplorerDriver(capabilities); 
-			//driver = new InternetExplorerDriver();
-		}
-		else if (DriverType.Chrome.toString().equals(driverType)) 
-		{ 
-			if(env.equals("Mac")) {
-				System.setProperty("webdriver.chrome.driver", "/Users/mayankpurohit/Desktop/Mayank/AutomationWorkspace/Metrodigi/lib/chromedriver");
-			}
-			else {
-			String path1 = getPath();
-			System.out.println(path1);
-			String chromeDriverPath= path1+"\\chromedriver.exe";
-
-			//Set the required properties to instantiate Chrome driver. Place any latest Chromedriver.exe files under Drivers folder
-			System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-			}
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--start-maximized");
-			driver = new ChromeDriver(options); } 
-		else 
-		{ driver = new FirefoxDriver(); }	*/		
-
+		
 		//Maximize window
 		driver.manage().window().maximize();
 

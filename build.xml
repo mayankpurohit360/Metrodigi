@@ -59,7 +59,7 @@
 	</target>
 	
 	<target name="TC_001_Login" depends="compile">
-	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+	  <testng classpathref="test.classpath" suitename="Automation" haltonfailure="true">
 		<xmlfileset dir="config" includes="TC_001_Login.xml" />
 	  </testng>
 	</target>
