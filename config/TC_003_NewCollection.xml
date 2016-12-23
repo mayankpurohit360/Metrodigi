@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" verbose="1" name="TC_003_NewCollection"
+	annotations="JDK">
+	<test name="TC_003_NewCollection" junit="false" preserve-order="true">
+		<classes>
+			<class name="com.Metrodigi.scripts.TC_003_NewCollection">	
+				<methods>
+            		<include name="NewCollection"/>					
+	         	</methods>
+	         </class>		
+		</classes>		
+	</test>
+</suite>

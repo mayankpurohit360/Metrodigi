@@ -44,6 +44,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
+import com.Metrodigi.pagehelper.ContentEditorHelper;
 import com.Metrodigi.pagehelper.EditProjectsHelper;
 import com.Metrodigi.pagehelper.HomePageHelper;
 import com.Metrodigi.pagehelper.LoginPageHelper;
@@ -63,6 +64,7 @@ public abstract class DriverTestCase
 	public HomePageHelper homepageHelper = new HomePageHelper(getWebDriver());
 //	public LoginPageHelper loginpageHelper = new LoginPageHelper(getWebDriver());
 	public EditProjectsHelper editProjectsHelper;
+	public ContentEditorHelper contenteditorhelper = new ContentEditorHelper(getWebDriver());
 	//Define variables
 	public String application_url = propertyReader.readApplicationFile("URL");
 	String env = propertyReader.readApplicationFile("Environment"); 
@@ -70,8 +72,6 @@ public abstract class DriverTestCase
 	public String password1 = propertyReader.readApplicationFile("Password1");
 	public String collectionname1 = propertyReader.readApplicationFile("Collectionname1");
 	File downloadDir;
-	
-	
 	
 	@BeforeMethod
 	@BeforeTest
@@ -196,7 +196,6 @@ public abstract class DriverTestCase
 		}
 	}
 	
-	@AfterMethod
 	public void endMethods() throws Exception
 	{		
 		ExecutionLog.LogEndClass(this.getClass().getName());

@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="5" verbose="1" name="TC_001"
+<suite thread-count="5" verbose="1" name="TC_012_NewProjectwithEpub"
 	annotations="JDK">
-	<test name="TC_001" junit="false" preserve-order="true">
+	<test name="TC_012_NewProjectwithEpub" junit="false" preserve-order="true">
 		<classes>
-			<class name="com.Metrodigi.scripts.TC_001">	
+			<class name="com.Metrodigi.scripts.TC_012_NewProjectwithEpub">	
 				<methods>
             		<include name="logintest"/>					
 	         	</methods>

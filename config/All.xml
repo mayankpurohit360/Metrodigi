@@ -2,6 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Metrodigi" parallel="methods">
 	<suite-files>
-		<suite-file path="TC_001.xml"></suite-file>
+		<suite-file path="TC_001_Login.xml"></suite-file>
+		<suite-file path="TC_002_NewProject.xml"></suite-file>
+		<suite-file path="TC_003_NewCollection.xml"></suite-file>
+		<suite-file path="TC_004_NewProjectwithDocument.xml"></suite-file>
+        <suite-file path="TC_005_OpenProject.xml"></suite-file>
+        <suite-file path="TC_006_NewProjectwithMediafiles.xml"></suite-file>
+		<suite-file path="TC_007_NewProjectinExistingCollection.xml"></suite-file>
+		<suite-file path="TC_008_DeleteProject.xml"></suite-file>
+		<suite-file path="TC_009_DeleteCollection.xml"></suite-file>
+		<suite-file path="TC_011_AddMembers.xml"></suite-file>
+		<suite-file path="TC_012_NewProjectwithEpub.xml"></suite-file>
 		</suite-files>
 </suite>

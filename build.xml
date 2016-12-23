@@ -40,7 +40,7 @@
 		<mkdir dir="${test.dest}" />
 		<echo message="classpath: ${test.classpath}" />
 		<echo message="compiling..." />
-		<javac debug="false" destdir="${test.dest}" includes="**/*.java, scripts/*/*.java" srcdir="${test.src}" target="1.7">
+		<javac debug="false" destdir="${test.dest}" includes="**/*.java, scripts/*/*.java" srcdir="${test.src}" target="1.8">
 			<classpath refid="test.classpath" />
 		</javac>
 	</target>
@@ -58,9 +58,69 @@
 	  </testng>
 	</target>
 	
-	<target name="TC_001" depends="compile">
+	<target name="TC_001_Login" depends="compile">
 	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
-		<xmlfileset dir="config" includes="TC_001.xml" />
+		<xmlfileset dir="config" includes="TC_001_Login.xml" />
+	  </testng>
+	</target>
+
+    <target name="TC_002_NewProject" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_002_NewProject.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_003_NewCollection" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_003_NewCollection.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_004_NewProjectwithDocument" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_004_NewProjectwithDocument.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_005_OpenProject" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_005_OpenProject.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_006_NewProjectwithMediafiles" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_006_NewProjectwithMediafiles.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_007_NewProjectinExistingCollection" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_007_NewProjectinExistingCollection.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_008_DeleteProject" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_008_DeleteProject.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_009_DeleteCollection" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_009_DeleteCollection.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_011_AddMembers" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_011_AddMembers.xml" />
+	  </testng>
+	</target>
+	
+	<target name="TC_012_NewProjectwithEpub" depends="compile">
+	  <testng classpathref="test.classpath" suitename="" haltonfailure="true">
+		<xmlfileset dir="config" includes="TC_012_NewProjectwithEpub.xml" />
 	  </testng>
 	</target>
 		

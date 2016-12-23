@@ -5,8 +5,10 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -276,7 +278,16 @@ public abstract class DriverHelper {
 			return false;
 		}
 	}
-
+	// Verify text is available or not
+	public boolean isTextAvailable(String text){
+		try{
+			boolean b = getWebDriver().getPageSource().contains(text);
+			return b;
+		}
+		catch(Exception e){
+			return false;
+		}
+	}
 	// Store text from a locator
 	public String getText(String locator) {
 		WaitForElementPresent(locator, 20);
@@ -481,4 +492,43 @@ public abstract class DriverHelper {
 		String filepath3 = System.getProperty("user.dir")+"\\Attachments\\video.mp4";
 		this.typeCharacter(robot, filepath3);
 		}
+   public void uploadepubfile() throws Exception{
+		Robot robot4 = new Robot();	
+	//put path to your file in a clipboard
+   
+	String filepath = System.getProperty("user.dir")+"\\Attachments\\accessible_epub_3.epub";
+	this.typeCharacter(robot4, filepath);
+	
+  }
+ //Handle child windows
+ 	public String switchPreviewWindow()
+ 	{
+ 		Set<String> windows = getWebDriver().getWindowHandles();
+ 		Iterator<String> iter = windows.iterator();		
+ 		String parent = iter.next();
+ 		getWebDriver().switchTo().window(iter.next());
+ 		return parent;
+ 	}
+ 	//Switch frame
+ 		public WebElement switchFrame()
+ 		{
+ 			List<WebElement> iframes_element =  getWebDriver().findElements(By.tagName("iframe"));
+ 		   	int iframes =  iframes_element.size();
+ 			System.out.println("The total number of iframes are " + iframes);
+ 			getWebDriver().switchTo().frame(0);
+ 		    WebElement editable = getWebDriver().switchTo().activeElement();
+ 		    return editable;
+ 		}
+ 		
+ 	//Select value from unordered list
+ 	public void selectValueFromUnorderedList(WebElement unorderedList, final String value) {
+ 	    List<WebElement> options = unorderedList.findElements(By.tagName("label"));
+
+ 	    for (WebElement option : options) {
+ 	        if (value.equals(option.getText())) {
+ 	            option.click();
+ 	            break;
+ 	        }
+ 	    }
+ 	}
 }

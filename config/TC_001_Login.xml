@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" verbose="1" name="TC_001_Login"
+	annotations="JDK">
+	<test name="TC_001_Login" junit="false" preserve-order="true">
+		<classes>
+			<class name="com.Metrodigi.scripts.TC_001_Login">	
+				<methods>
+            		<include name="logintest"/>					
+	         	</methods>
+	         </class>		
+		</classes>		
+	</test>
+</suite>
