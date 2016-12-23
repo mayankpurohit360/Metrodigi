@@ -64,7 +64,6 @@ public abstract class DriverTestCase
 	public HomePageHelper homepageHelper = new HomePageHelper(getWebDriver());
 //	public LoginPageHelper loginpageHelper = new LoginPageHelper(getWebDriver());
 	public EditProjectsHelper editProjectsHelper;
-	//public ContentEditorHelper contenteditorhelper = new ContentEditorHelper(getWebDriver());
 	//Define variables
 	public String application_url = propertyReader.readApplicationFile("URL");
 	String env = propertyReader.readApplicationFile("Environment"); 
