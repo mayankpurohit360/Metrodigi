@@ -63,7 +63,8 @@ public abstract class DriverTestCase
 	public PropertyReader propertyReader = new PropertyReader();
 	public HomePageHelper homepageHelper = new HomePageHelper(getWebDriver());
 //	public LoginPageHelper loginpageHelper = new LoginPageHelper(getWebDriver());
-	public EditProjectsHelper editProjectsHelper;
+	public EditProjectsHelper editProjectsHelper = new EditProjectsHelper(getWebDriver());
+	public ContentEditorHelper contenteditorhelper = new ContentEditorHelper(getWebDriver());
 	//Define variables
 	public String application_url = propertyReader.readApplicationFile("URL");
 	String env = propertyReader.readApplicationFile("Environment"); 
@@ -73,7 +74,6 @@ public abstract class DriverTestCase
 	File downloadDir;
 	
 	@BeforeMethod
-	@BeforeTest
 	public void setUp() 
 	{		
 		String path1 = getPath();
