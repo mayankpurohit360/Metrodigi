@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Locators>
-    <EditProjects>
+     <EditProjects>
       <Collection>
        <CollectionName><![CDATA[//input[@id='form-project-title']]]></CollectionName>  
        <AddProjectButton><![CDATA[//button[contains(text(),'+Add Project')]]]></AddProjectButton>              
